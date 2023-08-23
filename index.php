@@ -21,14 +21,12 @@
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <?php
-                // Connect to MySQL
                 $conn = mysqli_connect("localhost", "root", "", "todo_app");
 
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                // Handle delete
                 if (isset($_POST['delete'])) {
                     $todoId = $_POST['delete'];
                     $sql = "DELETE FROM todos WHERE id = $todoId";
@@ -68,11 +66,11 @@
     </li>';
                 }
 
-                // Clear the form submission values
+
                 $_POST['todo'] = "";
                 $_POST['update_status'] = "";
                 $_POST['delete'] = "";
-                // Close the connection
+
                 mysqli_close($conn);
                 ?>
             </ul>
